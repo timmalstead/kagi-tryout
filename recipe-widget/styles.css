@@ -3,14 +3,6 @@
   padding: 0;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  width:min-content;
-  gap: 2rem;
-  padding: 2rem;
-}
-
 div.recipe-widget {
   --primary-color: #2b2b2b;
   --contrast-color: #e7e7e7;
@@ -24,6 +16,7 @@ div.recipe-widget {
   border: calc(var(--large-spacing) / 10) solid var(--contrast-color);
   border-radius: var(--large-spacing);
   height: min-content;
+  width: fit-content;
 
   h1 {
     font-size: 1.5rem;
@@ -39,6 +32,7 @@ div.recipe-widget {
     }
 
     &:has(> summary > ul) {
+      width: max-content;
       summary {
         ul {
           display: flex;
@@ -106,10 +100,11 @@ div.recipe-widget {
     }
 
     &:has(> summary > p) {
+      width: calc(var(--large-spacing) * 20);
       summary {
         display: flex;
         flex-direction: column;
-        width: calc(var(--large-spacing) * 20);
+        
         p {
           overflow: hidden;
           /* adding 1 pixel for lower hanging letter forms */
