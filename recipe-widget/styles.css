@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+div.recipe-widget {
+  --primary-color: #2b2b2b;
+  --contrast-color: #e7e7e7;
+  --small-spacing: 0.5rem;
+  --large-spacing: 1rem;
+
+  background: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--primary-color);
+  padding: var(--large-spacing);
+  border: calc(var(--large-spacing) / 10) solid var(--contrast-color);
+  border-radius: var(--large-spacing);
+  height: min-content;
+  width: calc(var(--large-spacing) * 20);
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: var(--large-spacing);
+  }
+
+  details {
+    pointer-events: none;
+
+    summary {
+      list-style: none;
+    }
+
+    &:has(> summary > ul) {
+      summary {
+        ul {
+          display: flex;
+          flex-direction: column;
+          list-style: none;
+
+          li {
+            padding: var(--small-spacing) 0;
+            height: var(--large-spacing);
+
+            label,
+            input[type="checkbox"] {
+              pointer-events: auto;
+              cursor: pointer;
+            }
+
+            input[type="checkbox"] {
+              height: var(--large-spacing);
+              width: var(--large-spacing);
+              margin-right: var(--small-spacing);
+              accent-color: var(--primary-color);
+            }
+          }
+
+          &::after {
+            margin-top: var(--large-spacing);
+            align-self: center;
+            content: "Show more";
+            pointer-events: none;
+            visibility: hidden;
+          }
+        }
+
+        ul:has(> li:nth-child(11)) {
+          li {
+            &:nth-child(n + 12) {
+              display: none;
+            }
+          }
+
+          &::after {
+            pointer-events: auto;
+            visibility: visible;
+            cursor: pointer;
+          }
+        }
+      }
+
+      &:open {
+        summary {
+          ul {
+            li {
+              &:nth-child(n + 12) {
+                /* don't love using an !important, but it's not gonna win on specificity otherwise */
+                display: list-item !important;
+              }
+            }
+
+            &::after {
+              content: "Show less";
+            }
+          }
+        }
+      }
+    }
+
+    &:has(> summary > p) {
+      summary {
+        display: flex;
+        flex-direction: column;
+        p {
+          overflow: hidden;
+          /* adding 1 pixel for lower hanging letter forms */
+          max-height: calc(10lh + 1px);
+        }
+        &::after {
+          margin-top: var(--large-spacing);
+          align-self: center;
+          content: "Show more";
+          pointer-events: auto;
+          cursor: pointer;
+        }
+      }
+
+      &:open {
+        summary {
+          p {
+            max-height: min-content;
+          }
+          &::after {
+            content: "Show less";
+          }
+        }
+      }
+    }
+  }
+}
