@@ -22,7 +22,6 @@ div.recipe-widget {
   border: calc(var(--large-spacing) / 10) solid var(--contrast-color);
   border-radius: var(--large-spacing);
   height: min-content;
-  width: calc(var(--large-spacing) * 20);
 
   h1 {
     font-size: 1.5rem;
@@ -43,10 +42,10 @@ div.recipe-widget {
           display: flex;
           flex-direction: column;
           list-style: none;
+          width: max-content;
 
           li {
             padding: var(--small-spacing) 0;
-            height: var(--large-spacing);
 
             label,
             input[type="checkbox"] {
@@ -108,6 +107,7 @@ div.recipe-widget {
       summary {
         display: flex;
         flex-direction: column;
+        width: calc(var(--large-spacing) * 20);
         p {
           overflow: hidden;
           /* adding 1 pixel for lower hanging letter forms */
