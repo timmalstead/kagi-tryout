@@ -5,6 +5,8 @@
 
 body {
   display: flex;
+  flex-direction: column;
+  width:min-content;
   gap: 2rem;
   padding: 2rem;
 }
