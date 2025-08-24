@@ -81,7 +81,7 @@ div.recipe-widget {
         }
       }
 
-      &:open {
+      &[open] {
         summary {
           ul {
             li {
@@ -119,7 +119,7 @@ div.recipe-widget {
         }
       }
 
-      &:open {
+      &[open] {
         summary {
           p {
             max-height: min-content;
